@@ -1,0 +1,449 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --cyan-glow: rgba(6, 182, 212, 0.15);
+  --purple-glow: rgba(168, 85, 247, 0.15);
+  --blue-glow: rgba(59, 130, 246, 0.12);
+}
+
+body {
+  font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #0a0f1e;
+  overflow-x: hidden;
+}
+
+/* ===== Tech Grid Background ===== */
+.tech-grid-bg {
+  background-image:
+    linear-gradient(rgba(6, 182, 212, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(6, 182, 212, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ===== Glass Dark ===== */
+.glass-dark {
+  background: rgba(10, 15, 30, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* ===== Glow Card ===== */
+.glow-card {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(10, 15, 30, 0.9));
+  border: 1px solid rgba(6, 182, 212, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glow-card:hover {
+  border-color: rgba(6, 182, 212, 0.2);
+  box-shadow:
+    0 0 20px rgba(6, 182, 212, 0.05),
+    inset 0 1px 0 rgba(6, 182, 212, 0.08);
+}
+
+/* ===== Neon Border ===== */
+.neon-border {
+  position: relative;
+}
+
+.neon-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), transparent 50%, rgba(168, 85, 247, 0.2));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ===== Hero Tech Background ===== */
+.hero-tech-bg {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(168, 85, 247, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+    #0a0f1e;
+}
+
+/* ===== Animated Orbs ===== */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.orb-1 {
+  width: 400px;
+  height: 400px;
+  background: rgba(6, 182, 212, 0.15);
+  top: -100px;
+  right: -100px;
+  animation: orbFloat1 15s ease-in-out infinite;
+}
+
+.orb-2 {
+  width: 300px;
+  height: 300px;
+  background: rgba(168, 85, 247, 0.12);
+  bottom: -50px;
+  left: -80px;
+  animation: orbFloat2 18s ease-in-out infinite;
+}
+
+.orb-3 {
+  width: 200px;
+  height: 200px;
+  background: rgba(59, 130, 246, 0.1);
+  top: 40%;
+  left: 50%;
+  animation: orbFloat3 12s ease-in-out infinite;
+}
+
+@keyframes orbFloat1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-30px, 20px) scale(1.1); }
+  66% { transform: translate(20px, -10px) scale(0.95); }
+}
+
+@keyframes orbFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, -30px) scale(1.15); }
+}
+
+@keyframes orbFloat3 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-20px, 30px); }
+}
+
+/* ===== Scan Line ===== */
+.scan-line {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(6, 182, 212, 0.03) 50%,
+    transparent 100%
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+}
+
+/* ===== Tech Divider ===== */
+.tech-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(6, 182, 212, 0.2) 20%,
+    rgba(168, 85, 247, 0.15) 80%,
+    transparent 100%
+  );
+}
+
+/* ===== Section Label ===== */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #06b6d4;
+  background: rgba(6, 182, 212, 0.08);
+  border: 1px solid rgba(6, 182, 212, 0.15);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ===== Animations ===== */
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ===== Glow Text ===== */
+.glow-text {
+  text-shadow: 0 0 40px rgba(6, 182, 212, 0.2), 0 0 80px rgba(168, 85, 247, 0.1);
+}
+
+/* ===== Typing Cursor ===== */
+.typing-cursor::after {
+  content: '|';
+  animation: blink 1s step-end infinite;
+  color: #06b6d4;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ===== Cyber Buttons ===== */
+.cyber-btn-primary {
+  background: linear-gradient(135deg, #0891b2, #2563eb);
+  color: white;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(6, 182, 212, 0.25);
+}
+
+.cyber-btn-primary:hover {
+  box-shadow: 0 6px 25px rgba(6, 182, 212, 0.4);
+  transform: translateY(-1px);
+}
+
+.cyber-btn {
+  background: rgba(6, 182, 212, 0.08);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  color: #94a3b8;
+  transition: all 0.3s ease;
+}
+
+.cyber-btn:hover {
+  border-color: rgba(6, 182, 212, 0.4);
+  color: #e2e8f0;
+  background: rgba(6, 182, 212, 0.12);
+}
+
+/* ===== Input Dark ===== */
+.input-dark {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(51, 65, 85, 0.5);
+  color: #e2e8f0;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input-dark::placeholder {
+  color: #475569;
+}
+
+.input-dark:focus {
+  border-color: rgba(6, 182, 212, 0.4);
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.08);
+}
+
+/* ===== Tag Chip Dark ===== */
+.tag-chip-dark {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(51, 65, 85, 0.4);
+  transition: all 0.3s ease;
+}
+
+.tag-chip-dark:hover {
+  border-color: rgba(6, 182, 212, 0.3);
+  background: rgba(6, 182, 212, 0.05);
+}
+
+.tag-chip-dark.selected {
+  border-color: rgba(6, 182, 212, 0.4);
+  background: rgba(6, 182, 212, 0.1);
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.08);
+}
+
+/* ===== Chip Grid ===== */
+.chip-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+@media (min-width: 640px) {
+  .chip-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ===== Bar Animate ===== */
+.bar-animate {
+  animation: barGrow 1.5s ease-out forwards;
+  width: 0;
+}
+
+@keyframes barGrow {
+  to { width: var(--target-width, 80%); }
+}
+
+/* ===== Count Up ===== */
+.count-up {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ===== Status Dot ===== */
+.status-dot {
+  animation: statusPulse 2s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ===== Pulse Ring ===== */
+.pulse-ring {
+  position: relative;
+}
+
+.pulse-ring::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  animation: pulseRing 3s ease-in-out infinite;
+}
+
+@keyframes pulseRing {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0; transform: scale(1.2); }
+}
+
+/* ===== Hex Pattern ===== */
+.hex-pattern {
+  background-image: radial-gradient(circle at 25% 25%, rgba(6, 182, 212, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ===== Data Stream ===== */
+.data-stream {
+  position: relative;
+  overflow: hidden;
+}
+
+.data-stream::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, rgba(6, 182, 212, 0.3), transparent);
+  animation: dataStream 3s linear infinite;
+}
+
+@keyframes dataStream {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+/* ===== Digital Human ===== */
+.digital-human-container {
+  background: linear-gradient(180deg, rgba(6, 182, 212, 0.05) 0%, rgba(15, 23, 42, 0.9) 100%);
+  border: 1px solid rgba(6, 182, 212, 0.1);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.digital-human-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.5), transparent);
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+  background-size: 200% 100%;
+}
+
+/* ===== Progress Bar Glow ===== */
+.progress-glow {
+  box-shadow: 0 0 8px rgba(6, 182, 212, 0.3);
+}
+
+/* ===== Scrollbar Dark ===== */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(51, 65, 85, 0.5);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(6, 182, 212, 0.3);
+}
+
+/* ===== Tab Active Indicator ===== */
+.tab-glow {
+  position: relative;
+}
+
+.tab-glow::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 20%;
+  right: 20%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.5), transparent);
+}
+
+/* ===== Ticker Animations ===== */
+@keyframes tickerLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes tickerRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-ticker-left {
+  animation: tickerLeft 40s linear infinite;
+}
+
+.animate-ticker-right {
+  animation: tickerRight 35s linear infinite;
+}
+
+.animate-ticker-left-slow {
+  animation: tickerLeft 50s linear infinite;
+}
+
+.animate-ticker-left:hover,
+.animate-ticker-right:hover,
+.animate-ticker-left-slow:hover {
+  animation-play-state: paused;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 640px) {
+  .orb { filter: blur(60px); opacity: 0.25; }
+  .orb-1 { width: 250px; height: 250px; }
+  .orb-2 { width: 180px; height: 180px; }
+  .orb-3 { width: 120px; height: 120px; }
+}
